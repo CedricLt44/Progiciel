@@ -8,7 +8,7 @@
 
 . Conteneurs : DOCKER
 
-. AI : Ollama - MISTRAL
+. AI : Ollama - MISTRAL (model 7b)
 
 ================================
 
