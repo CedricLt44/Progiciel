@@ -16,7 +16,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.http import HttpResponseRedirect
+
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+
+    path('progiciel-admin/', admin.site.urls),  # Nouvelle URL de l'admin
 ]
