@@ -1,0 +1,106 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ERP</title>
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <nav
+      class=" px-4 py-6 bg-gray-50 dark:bg-gray-800 dark:border-gray-700 md:flex md:items-center md:justify-between"
+    >
+      <div>
+        <h1>ERP</h1>
+      </div>
+
+      <button
+        class="inline-flex items-center justify-center h-12 gap-2 px-6 text-sm font-medium tracking-wide transition duration-300 border rounded shadow-lg focus-visible:outline-none whitespace-nowrap border-neutral-500 text-neutral-500 shadow-neutral-200 hover:border-indigo-600 hover:text-indigo-600 focus:border-neutral-700 focus:text-neutral-700 hover:shadow-md hover:shadow-neutral-200 focus:shadow-md focus:shadow-neutral-200 disabled:cursor-not-allowed disabled:border-neutral-300 disabled:text-neutral-300 disabled:shadow-none"
+      >
+        <span>LOGIN</span>
+      </button>
+
+      <button
+        class="inline-flex items-center justify-center h-12 gap-2 px-6 text-sm font-medium tracking-wide transition duration-300 border rounded shadow-lg focus-visible:outline-none whitespace-nowrap border-neutral-500 text-neutral-500 shadow-neutral-200 hover:border-indigo-600 hover:text-indigo-600 focus:border-neutral-700 focus:text-neutral-700 hover:shadow-md hover:shadow-neutral-200 focus:shadow-md focus:shadow-neutral-200 disabled:cursor-not-allowed disabled:border-neutral-300 disabled:text-neutral-300 disabled:shadow-none"
+      >
+        <span>SIGN UP</span>
+      </button>
+
+      <button
+        class="inline-flex items-center justify-center h-12 gap-2 px-6 text-sm font-medium tracking-wide transition duration-300 border rounded shadow-lg focus-visible:outline-none whitespace-nowrap border-neutral-500 text-neutral-500 shadow-neutral-200 hover:border-indigo-600 hover:text-indigo-600 focus:border-neutral-700 focus:text-neutral-700 hover:shadow-md hover:shadow-neutral-200 focus:shadow-md focus:shadow-neutral-200 disabled:cursor-not-allowed disabled:border-neutral-300 disabled:text-neutral-300 disabled:shadow-none"
+      >
+        <span>CLIENT</span>
+      </button>
+
+      <button
+        class="inline-flex items-center justify-center h-12 gap-2 px-6 text-sm font-medium tracking-wide transition duration-300 border rounded shadow-lg focus-visible:outline-none whitespace-nowrap border-neutral-500 text-neutral-500 shadow-neutral-200 hover:border-indigo-600 hover:text-indigo-600 focus:border-neutral-700 focus:text-neutral-700 hover:shadow-md hover:shadow-neutral-200 focus:shadow-md focus:shadow-neutral-200 disabled:cursor-not-allowed disabled:border-neutral-300 disabled:text-neutral-300 disabled:shadow-none"
+      >
+        <span>PROJET</span>
+      </button>
+
+      <button
+        class="inline-flex items-center justify-center h-12 gap-2 px-6 text-sm font-medium tracking-wide transition duration-300 border rounded shadow-lg focus-visible:outline-none whitespace-nowrap border-neutral-500 text-neutral-500 shadow-neutral-200 hover:border-indigo-600 hover:text-indigo-600 focus:border-neutral-700 focus:text-neutral-700 hover:shadow-md hover:shadow-neutral-200 focus:shadow-md focus:shadow-neutral-200 disabled:cursor-not-allowed disabled:border-neutral-300 disabled:text-neutral-300 disabled:shadow-none"
+      >
+        <span>STOCK</span>
+      </button>
+
+      <button
+        class="inline-flex items-center justify-center h-12 gap-2 px-6 text-sm font-medium tracking-wide transition duration-300 border rounded shadow-lg focus-visible:outline-none whitespace-nowrap border-neutral-500 text-neutral-500 shadow-neutral-200 hover:border-indigo-600 hover:text-indigo-600 focus:border-neutral-700 focus:text-neutral-700 hover:shadow-md hover:shadow-neutral-200 focus:shadow-md focus:shadow-neutral-200 disabled:cursor-not-allowed disabled:border-neutral-300 disabled:text-neutral-300 disabled:shadow-none"
+      >
+        <span>FACTURATION</span>
+      </button>
+
+      <div class="navbar">
+        <a
+          href="{% url 'backend:index'%}"
+          class="text-3xl text-neutral-400 hover:text-indigo-500 dark:hover:text-white cursor-pointer"
+          ><i class="bx bx-home"></i
+        ></a>
+        <a
+          class=" text-3xl text-neutral-400 hover:text-indigo-500 dark:hover:text-white cursor-pointer"
+          ><i href="#" class="bx bx-log-out"></i
+        ></a>
+        <a
+          class=" text-3xl text-neutral-400 hover:text-indigo-500 dark:hover:text-white cursor-pointer"
+          ><i href="#" class="bx bx-cog"></i
+        ></a>
+        <a
+          href="{% url 'backend:about' %}"
+          class="text-3xl text-neutral-400 hover:text-indigo-500 dark:hover:text-white cursor-pointer"
+          ><i class="bx bx-info-circle"></i
+        ></a>
+      </div>
+    </nav>
+    {% block content %} {% endblock content %}
+    <main class="py-6 px-8"></main>
+  </body>
+
+  <footer
+    class="px-4 py-6 bg-neutral-200 dark:bg-neutral-900 md:flex md:items-center md:justify-between fixed bottom-0 w-full z-10"
+  >
+    <p>Copyright (c) 2024 - cedric LE TUTOUR</p>
+    <div>
+      <a
+        class="text-3xl text-neutral-400 hover:text-indigo-500 dark:hover:text-white"
+        href="https://www.linkedin.com/in/cedric-le-tutour"
+        target="_blank"
+        aria-label="LinkedIn"
+        ><i class="bx bxl-linkedin"></i
+      ></a>
+
+      <a
+        class="text-3xl text-neutral-400 hover:text-indigo-500 dark:hover:text-white"
+        href="https://github.com/CedricLt44"
+        target="_blank"
+        aria-label="GitHub"
+        ><i class="bx bxl-github"></i
+      ></a>
+    </div>
+  </footer>
+</html>
