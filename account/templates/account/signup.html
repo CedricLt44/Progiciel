@@ -1,0 +1,97 @@
+{% extends 'backend/base.html' %} {% load static %} {% block content %}
+<header class="py-12 text-center">
+  <img
+    class="h-[10rem] max-w-lg mx-auto rounded-lg"
+    src="{% static 'img/ERP.png' %}"
+    alt="Logo ERP"
+  />
+</header>
+<div class="relative max-w-xl mx-auto py-4 text-center">
+  <h1 class="text-3xl text-neutral-500">Créer un compte</h1>
+  {% if error %}
+  <div class="mb-4 text-red-600 font-semibold">{{ error }}</div>
+  {% endif %}
+
+  <form class="px-8 mt-6 space-y-4" method="POST" action=".">
+    {% csrf_token %}
+    <!-- Nom -->
+    <div class="relative my-6">
+      <label
+        for="name"
+        class="cursor-text peer-focus:cursor-default peer-autofill:-top-2 absolute left-2 -top-2 z-[1] px-2 text-xs text-slate-400 transition-all before:absolute before:top-0 before:left-0 before:z-[-1] before:block before:h-full before:w-full before:bg-white before:transition-all peer-placeholder-shown:top-2.5 peer-placeholder-shown:text-sm peer-required:after:text-pink-500 peer-required:after:content-['\00a0*'] peer-invalid:text-pink-500 peer-focus:-top-2 peer-focus:text-xs peer-focus:text-emerald-500 peer-invalid:peer-focus:text-pink-500 peer-disabled:cursor-not-allowed peer-disabled:text-slate-400 peer-disabled:before:bg-transparent"
+        >Nom complet :</label
+      >
+      <input
+        type="text"
+        name="name"
+        placeholder="Votre nom"
+        id="name"
+        class="relative w-full h-10 px-4 text-sm transition-all border rounded outline-none focus-visible:outline-none peer border-slate-200 text-slate-500 autofill:bg-white invalid:border-pink-500 invalid:text-pink-500 focus:border-indigo-500 focus:outline-none invalid:focus:border-pink-500 disabled:cursor-not-allowed disabled:bg-slate-50 disabled:text-slate-400"
+        required
+      />
+    </div>
+
+    <!-- Email -->
+    <div class="relative my-6">
+      <label
+        for="email"
+        class="cursor-text peer-focus:cursor-default peer-autofill:-top-2 absolute left-2 -top-2 z-[1] px-2 text-xs text-slate-400 transition-all before:absolute before:top-0 before:left-0 before:z-[-1] before:block before:h-full before:w-full before:bg-white before:transition-all peer-placeholder-shown:top-2.5 peer-placeholder-shown:text-sm peer-required:after:text-pink-500 peer-required:after:content-['\00a0*'] peer-invalid:text-pink-500 peer-focus:-top-2 peer-focus:text-xs peer-focus:text-emerald-500 peer-invalid:peer-focus:text-pink-500 peer-disabled:cursor-not-allowed peer-disabled:text-slate-400 peer-disabled:before:bg-transparent"
+        >E-mail :</label
+      ><br />
+      <input
+        type="email"
+        name="email"
+        placeholder="Votre E-mail"
+        id="email"
+        class="relative w-full h-10 px-4 text-sm transition-all border rounded outline-none focus-visible:outline-none peer border-slate-200 text-slate-500 autofill:bg-white invalid:border-pink-500 invalid:text-pink-500 focus:border-indigo-500 focus:outline-none invalid:focus:border-pink-500 disabled:cursor-not-allowed disabled:bg-slate-50 disabled:text-slate-400"
+        required
+      />
+    </div>
+
+    <!-- Mot de passe -->
+    <div class="relative my-6">
+      <label
+        for="password"
+        class="cursor-text peer-focus:cursor-default peer-autofill:-top-2 absolute left-2 -top-2 z-[1] px-2 text-xs text-slate-400 transition-all before:absolute before:top-0 before:left-0 before:z-[-1] before:block before:h-full before:w-full before:bg-white before:transition-all peer-placeholder-shown:top-2.5 peer-placeholder-shown:text-sm peer-required:after:text-pink-500 peer-required:after:content-['\00a0*'] peer-invalid:text-pink-500 peer-focus:-top-2 peer-focus:text-xs peer-focus:text-emerald-500 peer-invalid:peer-focus:text-pink-500 peer-disabled:cursor-not-allowed peer-disabled:text-slate-400 peer-disabled:before:bg-transparent"
+        >Mot de passe :</label
+      ><br />
+      <input
+        type="password"
+        name="password1"
+        placeholder="Mot de passe"
+        id="password1"
+        class="relative w-full h-10 px-4 text-sm transition-all border rounded outline-none focus-visible:outline-none peer border-slate-200 text-slate-500 autofill:bg-white invalid:border-pink-500 invalid:text-pink-500 focus:border-indigo-500 focus:outline-none invalid:focus:border-pink-500 disabled:cursor-not-allowed disabled:bg-slate-50 disabled:text-slate-400"
+        required
+      />
+    </div>
+
+    <!-- Confirmation du mot de passe -->
+    <div class="relative my-6">
+      <label
+        for="password2"
+        class="cursor-text peer-focus:cursor-default peer-autofill:-top-2 absolute left-2 -top-2 z-[1] px-2 text-xs text-slate-400 transition-all before:absolute before:top-0 before:left-0 before:z-[-1] before:block before:h-full before:w-full before:bg-white before:transition-all peer-placeholder-shown:top-2.5 peer-placeholder-shown:text-sm peer-required:after:text-pink-500 peer-required:after:content-['\00a0*'] peer-invalid:text-pink-500 peer-focus:-top-2 peer-focus:text-xs peer-focus:text-emerald-500 peer-invalid:peer-focus:text-pink-500 peer-disabled:cursor-not-allowed peer-disabled:text-slate-400 peer-disabled:before:bg-transparent"
+        >Confirm Password :</label
+      ><br />
+      <input
+        type="password"
+        name="password2"
+        placeholder="Répétez le mot de passe"
+        id="password2"
+        class="relative w-full h-10 px-4 text-sm transition-all border rounded outline-none focus-visible:outline-none peer border-slate-200 text-slate-500 autofill:bg-white invalid:border-pink-500 invalid:text-pink-500 focus:border-indigo-500 focus:outline-none invalid:focus:border-pink-500 disabled:cursor-not-allowed disabled:bg-slate-50 disabled:text-slate-400"
+        required
+      />
+    </div>
+
+    <!-- Bouton submit -->
+    <div>
+      <button
+        type="submit"
+        name="submit"
+        class="inline-flex items-center justify-center h-12 gap-2 px-6 text-sm font-medium tracking-wide transition duration-300 border rounded shadow-lg focus-visible:outline-none whitespace-nowrap border-neutral-500 text-neutral-500 shadow-neutral-200 hover:border-indigo-600 hover:text-indigo-600 focus:border-neutral-700 focus:text-neutral-700 hover:shadow-md hover:shadow-neutral-200 focus:shadow-md focus:shadow-neutral-200 disabled:cursor-not-allowed disabled:border-neutral-300 disabled:text-neutral-300 disabled:shadow-none"
+      >
+        <span>S'inscrire</span>
+      </button>
+    </div>
+  </form>
+</div>
+{% endblock content %}

@@ -19,7 +19,7 @@ from django.urls import path, include
 
 
 urlpatterns = [
-
     path('progiciel-admin/', admin.site.urls),  # Nouvelle URL de l'admin
     path('', include('backend.urls')),
+    path('',include('account.urls')),
 ]

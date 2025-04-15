@@ -20,18 +20,7 @@
         <h1>ERP</h1>
       </div>
 
-      <button
-        class="inline-flex items-center justify-center h-12 gap-2 px-6 text-sm font-medium tracking-wide transition duration-300 border rounded shadow-lg focus-visible:outline-none whitespace-nowrap border-neutral-500 text-neutral-500 shadow-neutral-200 hover:border-indigo-600 hover:text-indigo-600 focus:border-neutral-700 focus:text-neutral-700 hover:shadow-md hover:shadow-neutral-200 focus:shadow-md focus:shadow-neutral-200 disabled:cursor-not-allowed disabled:border-neutral-300 disabled:text-neutral-300 disabled:shadow-none"
-      >
-        <span>LOGIN</span>
-      </button>
-
-      <button
-        class="inline-flex items-center justify-center h-12 gap-2 px-6 text-sm font-medium tracking-wide transition duration-300 border rounded shadow-lg focus-visible:outline-none whitespace-nowrap border-neutral-500 text-neutral-500 shadow-neutral-200 hover:border-indigo-600 hover:text-indigo-600 focus:border-neutral-700 focus:text-neutral-700 hover:shadow-md hover:shadow-neutral-200 focus:shadow-md focus:shadow-neutral-200 disabled:cursor-not-allowed disabled:border-neutral-300 disabled:text-neutral-300 disabled:shadow-none"
-      >
-        <span>SIGN UP</span>
-      </button>
-
+      {% if request.user.is_authenticated %}
       <button
         class="inline-flex items-center justify-center h-12 gap-2 px-6 text-sm font-medium tracking-wide transition duration-300 border rounded shadow-lg focus-visible:outline-none whitespace-nowrap border-neutral-500 text-neutral-500 shadow-neutral-200 hover:border-indigo-600 hover:text-indigo-600 focus:border-neutral-700 focus:text-neutral-700 hover:shadow-md hover:shadow-neutral-200 focus:shadow-md focus:shadow-neutral-200 disabled:cursor-not-allowed disabled:border-neutral-300 disabled:text-neutral-300 disabled:shadow-none"
       >
@@ -56,16 +45,60 @@
         <span>FACTURATION</span>
       </button>
 
-      <div class="navbar">
+      {% else %}
+      <a
+        href="{% url 'account:login' %}"
+        class="inline-flex items-center justify-center h-12 gap-2 px-6 text-sm font-medium tracking-wide transition duration-300 
+        border rounded shadow-lg focus-visible:outline-none whitespace-nowrap 
+        border-neutral-500 text-neutral-500 shadow-neutral-200
+        {% if request.resolver_match.url_name == 'login' %}
+          bg-indigo-400 text-white border-indigo-600
+        {% else %}
+          text-neutral-500 hover:text-white hover:bg-indigo-300 hover:border-indigo-600
+        {% endif %}
+        hover:shadow-md hover:shadow-neutral-200 
+        focus:shadow-md focus:shadow-neutral-200 
+        disabled:cursor-not-allowed disabled:border-neutral-300 disabled:text-neutral-300 disabled:bg-neutral-100 disabled:shadow-none"
+      >
+        <span>LOGIN</span>
+      </a>
+
+      <a
+        href="{% url 'account:signup' %}"
+        class="inline-flex items-center justify-center h-12 gap-2 px-6 text-sm font-medium tracking-wide transition duration-300 
+        border rounded shadow-lg focus-visible:outline-none whitespace-nowrap 
+        border-neutral-500 shadow-neutral-200
+        {% if request.resolver_match.url_name == 'signup' %}
+          bg-indigo-400 text-white border-indigo-600
+        {% else %}
+          text-neutral-500 hover:text-white hover:bg-indigo-300 hover:border-indigo-600
+        {% endif %}
+        hover:shadow-md hover:shadow-neutral-200 
+        focus:shadow-md focus:shadow-neutral-200 
+        disabled:cursor-not-allowed disabled:border-neutral-300 disabled:text-neutral-300 disabled:bg-neutral-100 disabled:shadow-none"
+      >
+        <span>SIGN UP</span>
+      </a>
+      {% endif %}
+
+      <div class="navbar flex items-center space-x-4">
         <a
           href="{% url 'backend:index'%}"
           class="text-3xl text-neutral-400 hover:text-indigo-500 dark:hover:text-white cursor-pointer"
-          ><i class="bx bx-home"></i
-        ></a>
-        <a
-          class=" text-3xl text-neutral-400 hover:text-indigo-500 dark:hover:text-white cursor-pointer"
-          ><i href="#" class="bx bx-log-out"></i
-        ></a>
+        >
+          <i class="bx bx-home"></i>
+        </a>
+
+        {% if user.is_authenticated %}
+        <form method="post" action="{% url 'backend:logout' %}">
+          {% csrf_token %}
+          <button
+            type="submit"
+            class="bx bx-log-out text-3xl text-neutral-400 hover:text-indigo-500 dark:hover:text-white cursor-pointer"
+          ></button>
+        </form>
+        {% endif %}
+
         <a
           class=" text-3xl text-neutral-400 hover:text-indigo-500 dark:hover:text-white cursor-pointer"
           ><i href="#" class="bx bx-cog"></i

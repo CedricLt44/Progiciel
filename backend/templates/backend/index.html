@@ -5,5 +5,10 @@
     src="{% static 'img/ERP.png' %}"
     alt="Logo ERP"
   />
+  {% if request.user.is_authenticated %}
+  <h1 class="text-neutral-400 text-3xl">Bienvenue {{ user.name }} !</h1>
+  {% else %}
+  <h1 class="text-3xl text-neutral-300">Bienvenue !</h1>
+  {% endif %}
 </header>
 {% endblock content %}
