@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ERP</title>
+    <title>Progiciel</title>
     <link
       href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
       rel="stylesheet"
@@ -17,7 +17,7 @@
       class=" px-4 py-6 bg-gray-50 dark:bg-gray-800 dark:border-gray-700 md:flex md:items-center md:justify-between"
     >
       <div>
-        <h1>ERP</h1>
+        <h1>C.A.E</h1>
       </div>
 
       {% if request.user.is_authenticated %}
@@ -90,7 +90,7 @@
         </a>
 
         {% if user.is_authenticated %}
-        <form method="post" action="{% url 'backend:logout' %}">
+        <form method="POST" action="{% url 'backend:logout' %}">
           {% csrf_token %}
           <button
             type="submit"
@@ -119,6 +119,13 @@
   >
     <p>Copyright (c) 2024 - cedric LE TUTOUR</p>
     <div>
+      <a
+        class="text-3xl text-neutral-400 hover:text-indigo-500 dark:hover:text-white"
+        target="_blank"
+        arial-label="chatbot"
+        href="{% url 'chatbot:chatbot_page' %}"
+        ><i class="bx bxs-message-square-detail"></i
+      ></a>
       <a
         class="text-3xl text-neutral-400 hover:text-indigo-500 dark:hover:text-white"
         href="https://www.linkedin.com/in/cedric-le-tutour"

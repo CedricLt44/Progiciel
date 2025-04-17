@@ -22,4 +22,5 @@ urlpatterns = [
     path('progiciel-admin/', admin.site.urls),  # Nouvelle URL de l'admin
     path('', include('backend.urls')),
     path('',include('account.urls')),
-]
+    path('api/', include('chatbot.urls')),
+    ]

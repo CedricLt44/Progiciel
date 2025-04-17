@@ -1,0 +1,40 @@
+{% extends 'backend/base.html' %} {% load static %} {% block content %}
+
+<div class="chat-box relative max-w-xl mx-auto py-4 text-3xl text-center">
+  <h2>ChatbotAI</h2>
+  <form class="px-8 mt-6 space-y-4" method="post">
+    {% csrf_token %}
+    <input
+      type="text"
+      id="user_input"
+      name="user_input"
+      placeholder="Posez votre question ici..."
+      class="inline-flex items-center justify-center h-12 gap-2 px-9 text-sm font-medium tracking-wide transition duration-300 
+      border rounded shadow-lg 
+      focus-visible:outline-none whitespace-nowrap border-neutral-500 
+      text-neutral-500 shadow-neutral-200 
+      hover:border-indigo-600 hover:text-indigo-600 hover:shadow-md hover:shadow-neutral-200
+      focus:border-neutral-700 focus:text-neutral-700  focus:shadow-md focus:shadow-neutral-200 
+      disabled:cursor-not-allowed disabled:border-neutral-300 disabled:text-neutral-300 disabled:shadow-none"
+    />
+    <button
+      type="submit"
+      class="inline-flex items-center justify-center h-12 gap-2 px-6 text-sm font-medium tracking-wide transition duration-300 border rounded shadow-lg focus-visible:outline-none whitespace-nowrap border-neutral-500 text-neutral-500 shadow-neutral-200 hover:border-indigo-600 hover:text-indigo-600 focus:border-neutral-700 focus:text-neutral-700 hover:shadow-md hover:shadow-neutral-200 focus:shadow-md focus:shadow-neutral-200 disabled:cursor-not-allowed disabled:border-neutral-300 disabled:text-neutral-300 disabled:shadow-none"
+    >
+      Envoyer
+    </button>
+  </form>
+  {% if user_input %}
+  <div class="mt-6 text-left">
+    <h1>Vous :</h1>
+    <div class="text-sm mb-6">{{ user_input }}</div>
+
+    {% if bot_response %}
+    <h1>Mistral :</h1>
+    <div class="text-sm px-6 m-9">{{ bot_response|linebreaks }}</div>
+    {% endif %}
+  </div>
+  {% endif %}
+</div>
+
+{% endblock content %}
