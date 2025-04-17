@@ -11,6 +11,11 @@
       rel="stylesheet"
     />
     <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=pageview"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
   </head>
   <body>
     <nav
@@ -21,17 +26,44 @@
       </div>
 
       {% if request.user.is_authenticated %}
+      <a
+        href="{% url 'ressource_humaine:liste_employe' %}"
+        class="inline-flex items-center justify-center h-12 gap-2 px-6 text-sm font-medium tracking-wide transition duration-300 
+      border rounded shadow-lg focus-visible:outline-none whitespace-nowrap 
+      border-neutral-500 text-neutral-500 shadow-neutral-200
+      {% if request.resolver_match.url_name == 'ressource_humaine:liste_employe' %}
+        bg-indigo-400 text-white border-indigo-600
+      {% else %}
+        text-neutral-500 hover:text-white hover:bg-indigo-300 hover:border-indigo-600
+      {% endif %}
+      hover:shadow-md hover:shadow-neutral-200 
+      focus:shadow-md focus:shadow-neutral-200 
+      disabled:cursor-not-allowed disabled:border-neutral-300 disabled:text-neutral-300 disabled:bg-neutral-100 disabled:shadow-none"
+      >
+        <span>RH</span>
+      </a>
       <button
         class="inline-flex items-center justify-center h-12 gap-2 px-6 text-sm font-medium tracking-wide transition duration-300 border rounded shadow-lg focus-visible:outline-none whitespace-nowrap border-neutral-500 text-neutral-500 shadow-neutral-200 hover:border-indigo-600 hover:text-indigo-600 focus:border-neutral-700 focus:text-neutral-700 hover:shadow-md hover:shadow-neutral-200 focus:shadow-md focus:shadow-neutral-200 disabled:cursor-not-allowed disabled:border-neutral-300 disabled:text-neutral-300 disabled:shadow-none"
       >
         <span>CLIENT</span>
       </button>
 
-      <button
-        class="inline-flex items-center justify-center h-12 gap-2 px-6 text-sm font-medium tracking-wide transition duration-300 border rounded shadow-lg focus-visible:outline-none whitespace-nowrap border-neutral-500 text-neutral-500 shadow-neutral-200 hover:border-indigo-600 hover:text-indigo-600 focus:border-neutral-700 focus:text-neutral-700 hover:shadow-md hover:shadow-neutral-200 focus:shadow-md focus:shadow-neutral-200 disabled:cursor-not-allowed disabled:border-neutral-300 disabled:text-neutral-300 disabled:shadow-none"
+      <a
+        href="{% url 'gestion_projet:liste_projets' %}"
+        class="inline-flex items-center justify-center h-12 gap-2 px-6 text-sm font-medium tracking-wide transition duration-300 
+        border rounded shadow-lg focus-visible:outline-none whitespace-nowrap 
+        border-neutral-500 text-neutral-500 shadow-neutral-200
+        {% if request.resolver_match.url_name == 'liste_projets' %}
+          bg-indigo-400 text-white border-indigo-600
+        {% else %}
+          text-neutral-500 hover:text-white hover:bg-indigo-300 hover:border-indigo-600
+        {% endif %}
+        hover:shadow-md hover:shadow-neutral-200 
+        focus:shadow-md focus:shadow-neutral-200 
+        disabled:cursor-not-allowed disabled:border-neutral-300 disabled:text-neutral-300 disabled:bg-neutral-100 disabled:shadow-none"
       >
         <span>PROJET</span>
-      </button>
+      </a>
 
       <button
         class="inline-flex items-center justify-center h-12 gap-2 px-6 text-sm font-medium tracking-wide transition duration-300 border rounded shadow-lg focus-visible:outline-none whitespace-nowrap border-neutral-500 text-neutral-500 shadow-neutral-200 hover:border-indigo-600 hover:text-indigo-600 focus:border-neutral-700 focus:text-neutral-700 hover:shadow-md hover:shadow-neutral-200 focus:shadow-md focus:shadow-neutral-200 disabled:cursor-not-allowed disabled:border-neutral-300 disabled:text-neutral-300 disabled:shadow-none"
@@ -110,8 +142,7 @@
         ></a>
       </div>
     </nav>
-    {% block content %} {% endblock content %}
-    <main class="py-6 px-8"></main>
+    <main class="py-6 px-8">{% block content %} {% endblock content %}</main>
   </body>
 
   <footer

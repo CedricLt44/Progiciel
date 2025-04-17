@@ -20,7 +20,9 @@ from django.urls import path, include
 
 urlpatterns = [
     path('progiciel-admin/', admin.site.urls),  # Nouvelle URL de l'admin
-    path('', include('backend.urls')),
-    path('',include('account.urls')),
-    path('api/', include('chatbot.urls')),
-    ]
+    path('', include('backend.urls')),  # Défini un chemin pour "backend"
+    path('', include('account.urls')),  # Défini un chemin pour "account"
+    path('api/', include('chatbot.urls')),  # L'API reste accessible via /api/
+    path('', include('gestion_projet.urls')),  # Gestion des projets avec un chemin dédié
+    path('', include('ressource_humaine.urls')),  # Ressources humaines
+]

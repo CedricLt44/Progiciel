@@ -1,0 +1,121 @@
+{% extends 'backend/base.html' %} {% block content %}
+<header class="flex justify-between my-4 py-2 text-center">
+  <h1 class="text-xl">LISTE EMPLOYEES</h1>
+  <!-- Component: Rounded basic search input -->
+  <div class="relative">
+    <input
+      id="barre-recherche"
+      type="search"
+      name="id-s03"
+      placeholder="Search here"
+      aria-label="Search content"
+      class="relative w-full h-10 px-4 pr-12 text-sm transition-all border rounded outline-none focus-visible:outline-none peer border-slate-200 text-slate-500 autofill:bg-white invalid:border-pink-500 invalid:text-pink-500 focus:border-amber-500 focus:outline-none invalid:focus:border-pink-500 disabled:cursor-not-allowed disabled:bg-slate-50 disabled:text-slate-400"
+    />
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      class="absolute top-2.5 right-4 h-5 w-5 cursor-pointer stroke-slate-400 peer-disabled:cursor-not-allowed"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      aria-hidden="true"
+      aria-label="Search icon"
+      role="graphics-symbol"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
+      />
+    </svg>
+  </div>
+  <!-- End Rounded search input -->
+  <div>
+    <i
+      class="bx bx-add-to-queue text-3xl text-neutral-400 hover:text-amber-500 dark:hover:text-white cursor-pointer"
+    ></i>
+  </div>
+</header>
+
+<!-- Accordéon -->
+<details
+  class="border border-gray-200 rounded-xl mb-4 focus-within:border-indigo-300 focus-within:ring-1 focus-within:ring-indigo-300 hover:bg-neutral-100 dark:hover:bg-neutral-800"
+>
+  <summary
+    class="flex items-center justify-between w-full p-5 font-medium text-neutral-500 cursor-pointer rtl:text-right focus:outline-none dark:text-neutral-400"
+  >
+    <h1 class="flex items-center">NOM DE L'EMPLOYE</h1>
+
+    <svg
+      class="w-5 h-5 shrink-0 transition-transform transform"
+      fill="currentColor"
+      viewBox="0 0 20 20"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        fill-rule="evenodd"
+        d="M5.23 7.21a.75.75 0 011.06.02L10 11.293l3.71-4.063a.75.75 0 011.08 1.04l-4.25 4.667a.75.75 0 01-1.08 0l-4.25-4.667a.75.75 0 01.02-1.06z"
+        clip-rule="evenodd"
+      ></path>
+    </svg>
+  </summary>
+  <div
+    class="p-5 border-t border-gray-200 dark:border-gray-700 dark:bg-gray-900"
+  >
+    <div class="container px6 m-auto">
+      <div class="grid grid-cols-4 gap-6 md:grid-cols-8 lg:grid-cols-12">
+        <div class="col-span-4 lg:col-span-3">
+          <h1 class="text-lg font-medium">Détails :</h1>
+          <h1>Date de naissance :</h1>
+          <h1>Nom :</h1>
+          <h1>Prénom:</h1>
+          <h1>Adresse :</h1>
+          <h1>Numéro de téléphone :</h1>
+          <h1>N° Secu :</h1>
+        </div>
+        <div class="col-span-4 lg:col-span-3">
+          <h1 class="text-lg font-medium">Qualifications :</h1>
+          <h1>Permis :</h1>
+          <h1>Caces:</h1>
+          <h1>Specialité :</h1>
+          <h1>Satut :</h1>
+        </div>
+        <div class="col-span-4 lg:col-span-3">
+          <h1 class="text-lg font-medium">Equipe :</h1>
+          <h1>Projets :</h1>
+          <h1>Product Owner :</h1>
+          <h1>Production :</h1>
+          <h1>Suivi qualité :</h1>
+        </div>
+        <div class="col-span-4 lg:col-span-3">
+          <h1 class="text-lg font-medium">Commentaires :</h1>
+          <p>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis,
+            officiis autem. Fugit, necessitatibus quibusdam possimus eos totam
+            esse laudantium voluptatibus sint, dolorum consequatur officia neque
+            impedit delectus consequuntur doloremque id.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="flex items-center gap-2">
+    <i
+      class="bx bxs-edit-alt m-4 text-3xl text-neutral-400 hover:text-indigo-500 dark:hover:text-white cursor-pointer"
+    ></i>
+    <i
+      class="text-neutral-400 hover:text-indigo-500 dark:hover:text-white cursor-pointer"
+    >
+      <span class="material-symbols-outlined text-3xl">pageview</span>
+    </i>
+  </div>
+</details>
+
+<style>
+  /* Rotation de l'icône lorsque <details> est ouvert */
+  details[open] svg {
+    transform: rotate(180deg);
+  }
+</style>
+
+{% endblock %}
