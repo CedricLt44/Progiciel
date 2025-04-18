@@ -132,8 +132,8 @@
         {% endif %}
 
         <a
-          class=" text-3xl text-neutral-400 hover:text-indigo-500 dark:hover:text-white cursor-pointer"
-          ><i href="#" class="bx bx-cog"></i
+          class=" bx bx-cog text-3xl text-neutral-400 hover:text-indigo-500 dark:hover:text-white cursor-pointer"
+          href="{% url 'admin:index' %}"
         ></a>
         <a
           href="{% url 'backend:about' %}"

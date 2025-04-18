@@ -8,14 +8,14 @@ from django.db import models
 
 # Create your models here.
 class CustomUserManager(UserManager):
+  
   def _create_user_(self, name, email, password,**extra_fields):
     if not email:
       raise ValueError('Adresse Email non valide')
     email = self.normalize_email(email)#methode de UserManager#
     user = self.model(email=email, name=name, **extra_fields )
     user.set_password(password)
-    user.save(using=self.db)
-
+    user.save(using=self._db)
     return user
   
   def create_user(self, name=None, email=None, password=None, **extra_fields):
@@ -44,4 +44,7 @@ class User(AbstractBaseUser, PermissionsMixin):
 
   USERNAME_FIELD = 'email'
   EMAIL_FIELD = 'email'
-  REQUIRED_FIELDS =['name',]
+  REQUIRED_FIELDS =['name']
+
+  def __str__(self):
+    return self.email
