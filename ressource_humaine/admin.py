@@ -18,7 +18,7 @@ class EmployeAdmin(admin.ModelAdmin):
 
     # Méthode pour afficher le nom d'utilisateur du créateur de l'employé
     def get_created_by(self, obj):
-        return obj.created_by.username if obj.created_by else "Aucun créateur"
+        return obj.created_by.email if obj.created_by else "Aucun créateur"
     get_created_by.short_description = 'Créé par'
 
 

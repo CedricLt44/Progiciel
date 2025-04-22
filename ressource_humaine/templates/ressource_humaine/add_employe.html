@@ -3,12 +3,12 @@
   <h1 class="text-3xl text-neutral-500">Ajouter un Employé</h1>
 </header>
 
-<div class="relative max-w-3xl justify-between  mx-auto py-2 pb-16">
+<div class=" justify-between  mx-auto py-2 pb-16">
   <form method="POST" enctype="multipart/form-data" class="px-8 space-y-6">
     {% csrf_token %}
 
     <!-- Formulaire d'ajout d'employé -->
-    <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+    <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-6">
       <!-- Champs du formulaire -->
       {% for field in form %}
       <div class="relative my-6">
@@ -31,6 +31,7 @@
       </div>
       {% endfor %}
     </div>
+    <!-- Fin du formulaire d'ajout d'employé -->
 
     <!-- Bouton de soumission -->
     <div class="flex justify-end ">

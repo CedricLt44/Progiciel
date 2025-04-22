@@ -3,6 +3,9 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import Group
 from .models import Employe
 from .forms import EmployeForm
+from django.shortcuts import get_object_or_404
+
+
 
 @login_required
 def liste_employe(request):
@@ -11,9 +14,11 @@ def liste_employe(request):
     """
     # Récupérer tous les groupes de l'utilisateur
     user_groups = request.user.groups.all()
-
+    if request.user.is_superuser:
+        # Si l'utilisateur est superutilisateur, afficher tous les employés
+        employes = Employe.objects.all()
     # Filtrer les employés par groupe si l'utilisateur appartient à un ou plusieurs groupes
-    if user_groups:
+    elif user_groups:
         # Si un groupe est sélectionné, filtrer les employés par ce groupe
         employes = Employe.objects.filter(group__in=user_groups)
     else:
@@ -44,3 +49,11 @@ def add_employe(request):
         form = EmployeForm()
 
     return render(request, 'ressource_humaine/add_employe.html', {'form': form})
+
+@login_required
+def detail_employe(request, employe_id):
+    """
+    Vue affichant le détail d'un employé spécifique.
+    """
+    employe = get_object_or_404(Employe, id=employe_id)
+    return render(request, 'ressource_humaine/detail_employe.html', {'employe': employe})

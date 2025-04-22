@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import Group
-
+from django.conf import settings
 # Create your models here.
 # modèle DEpartement
 class Departement(models.Model):
@@ -42,38 +42,23 @@ class Employe(models.Model):
     poste = models.CharField(max_length=100)
     departement = models.ForeignKey(Departement, on_delete=models.SET_NULL, null=True, related_name="employes")
     group = models.ForeignKey(Group, on_delete=models.SET_NULL, null=True, blank=True)
-
-    def __str__(self):
-        return f"{self.prenom} {self.nom}"
-
-class Diplome(models.Model):
-    """
-    Diplômes obtenus par un employé.
-    """
-    employe = models.ForeignKey(Employe, on_delete=models.CASCADE, related_name='diplomes')
+    # Diplômes obtenus par un employé.
     nom_diplome = models.CharField(max_length=100)
-    date_obtention = models.DateField()
-
-    def __str__(self):
-        return f"{self.nom} ({self.employe})"
-    
-class CACES(models.Model):
-    """
-    CACES détenus par un employé.
-    """
-    employe = models.ForeignKey(Employe, on_delete=models.CASCADE, related_name='caces')
-    type_caces = models.CharField(max_length=50)
-    date_obtention = models.DateField()
-    date_expiration = models.DateField()
-
-    def __str__(self):
-        return f"CACES {self.type} - {self.employe}"
-
-
-class Permis(models.Model):
-    """
-    Permis de conduire détenus par un employé.
-    """
+    date_obtention_diplome = models.DateField()
+    # CACES détenus par un employé.
+    TYPE_CACES = [
+        ('R489-1A', 'Transpalettes à conducteur porté'),
+        ('R489-1b', 'Gerbeurs à conducteur porté'),
+        ('R489-cat-3', 'Chariots élévateur (6T)'),
+        ('R489-cat-5', 'Chariots élévateurs à mât rétractable'),
+        ('R482', 'Engin de chantier'),
+        ('R490', 'Grues auxiliaires'),
+        ('R486', 'Nacelle'),
+    ]
+    type_caces = models.CharField(max_length=20, choices=TYPE_CACES)  # Ex: R389, R482, R490    
+    date_obtention_caces = models.DateField()
+    date_expiration_caces = models.DateField()
+    # Permis de conduire détenus par un employé.
     TYPE_PERMIS = [
     ('A', 'A (Moto)'),
     ('B', 'B (Voiture)'),
@@ -81,16 +66,10 @@ class Permis(models.Model):
     ('D', 'D (Transport en commun)'),
     ('BE', 'BE (Voiture + Remorque)'),
     ]
-
-    employe = models.ForeignKey(Employe, on_delete=models.CASCADE, related_name='permis')
     type_permis = models.CharField(max_length=20, choices=TYPE_PERMIS)  # Ex: B, C, D
-    date_obtention = models.DateField()
+    date_obtention_permis = models.DateField()
 
-    def __str__(self):
-        return f"Permis {self.type} - {self.employe}"
-
-# Modèle Contrat
-class Contrat(models.Model):
+    # Contrat de travail d'un employé.
     TYPE_CHOICES = [
         ('CDI', 'CDI'),
         ('CDD', 'CDD'),
@@ -98,11 +77,10 @@ class Contrat(models.Model):
         ('Alternance', 'Alternance')
     ]
     
-    employe = models.OneToOneField(Employe, on_delete=models.CASCADE)
     type_contrat = models.CharField(max_length=20, choices=TYPE_CHOICES)
     date_debut = models.DateField()
-    date_fin = models.DateField(null=True, blank=True)
+    date_fin = models.DateField()
     salaire = models.DecimalField(max_digits=10, decimal_places=2)
-
+    created_by = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.SET_NULL, null=True, blank=True)
     def __str__(self):
-        return f"{self.type_contrat} - {self.employe}"
+        return f"{self.prenom} {self.nom}"

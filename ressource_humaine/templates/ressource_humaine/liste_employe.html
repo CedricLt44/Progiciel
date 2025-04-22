@@ -40,13 +40,16 @@
 </header>
 
 <!-- Accordéon -->
+{% for employe in employes %}
 <details
   class="border border-gray-200 rounded-xl mb-4 focus-within:border-indigo-300 focus-within:ring-1 focus-within:ring-indigo-300 hover:bg-neutral-100 dark:hover:bg-neutral-800"
 >
   <summary
     class="flex items-center justify-between w-full p-5 font-medium text-neutral-500 cursor-pointer rtl:text-right focus:outline-none dark:text-neutral-400"
   >
-    <h1 class="flex items-center">EMPLOYE(E)</h1>
+    <h1 class="flex items-center">
+      EMPLOYE(E) : {{ employe.nom}} {{ employe.prenom }}
+    </h1>
 
     <svg
       class="w-5 h-5 shrink-0 transition-transform transform"
@@ -68,32 +71,34 @@
       <div class="grid grid-cols-4 gap-6 md:grid-cols-8 lg:grid-cols-12">
         <div class="col-span-4 lg:col-span-3">
           <h1 class="text-lg font-medium">Identité :</h1>
-          <h1>Civilité :</h1>
-          <h1>Nom :</h1>
-          <h1>Prénom:</h1>
-          <h1>Adresse :</h1>
-          <h1>Code postal :</h1>
-          <h1>Ville :</h1>
-          <h1>Pays :</h1>
-          <h1>Date de naissance :</h1>
-          <h1>Numéro de téléphone :</h1>
-          <h1>N° Secu :</h1>
+          <h1>Civilité : {{ employe.civilite }}</h1>
+          <h1>Nom : {{ employe.nom }}</h1>
+          <h1>Prénom: {{ employe.prenom }}</h1>
+          <h1>Adresse : {{ employe.adresse }}</h1>
+          <h1>Code postal : {{ employe.code_postal }}</h1>
+          <h1>Ville : {{ employe.ville }}</h1>
+          <h1>Pays : {{ employe.pays }}</h1>
+          <h1>Date de naissance : {{ employe.date_naissance }}</h1>
+          <h1>Numéro de téléphone : {{ employe.telephone }}</h1>
+          <h1>N° Secu : {{ employe.numero_securite_sociale }}</h1>
         </div>
         <div class="col-span-4 lg:col-span-3">
           <h1 class="text-lg font-medium">Détails :</h1>
-          <h1>Permis :</h1>
-          <h1>Caces:</h1>
-          <h1>Diplôme :</h1>
-          <h>Contrat :</h>
+          <h1>Permis : {{ employe.type_permis }}</h1>
+          <h1>Caces: {{ employe.type_caces }}</h1>
+          <h1>Diplôme : {{ employe.nom_diplome }}</h1>
+          <h>Contrat : {{ employe.type_contrat}} </h>
         </div>
         <div class="col-span-4 lg:col-span-3">
-          <h1 class="text-lg font-medium">Departement :</h1>
-          <h1>Service :</h1>
+          <h1 class="text-lg font-medium">
+            Departement : {{ employe.departement }}
+          </h1>
+          <h1>Service : {{ employe.group }}</h1>
           <h1>Fonction :</h1>
           <h1>Manager :</h1>
         </div>
         <div class="col-span-4 lg:col-span-3">
-          <h1 class="text-lg font-medium">Commentaires :</h1>
+          <h1 class="text-lg font-medium">Commentaire pas RGPD :</h1>
           <p>
             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis,
             officiis autem. Fugit, necessitatibus quibusdam possimus eos totam
@@ -115,6 +120,8 @@
     </i>
   </div>
 </details>
+{% endfor %}
+<!-- Fin de l'accordéon -->
 
 <style>
   /* Rotation de l'icône lorsque <details> est ouvert */
