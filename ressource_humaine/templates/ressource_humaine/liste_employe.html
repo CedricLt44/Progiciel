@@ -31,9 +31,11 @@
   </div>
   <!-- End Rounded search input -->
   <div>
-    <i
-      class="bx bx-add-to-queue text-3xl text-neutral-400 hover:text-amber-500 dark:hover:text-white cursor-pointer"
-    ></i>
+    <a href="{% url 'ressource_humaine:add_employe' %}">
+      <i
+        class="bx bx-add-to-queue text-3xl text-neutral-400 hover:text-amber-500 dark:hover:text-white cursor-pointer"
+      ></i
+    ></a>
   </div>
 </header>
 
@@ -44,7 +46,7 @@
   <summary
     class="flex items-center justify-between w-full p-5 font-medium text-neutral-500 cursor-pointer rtl:text-right focus:outline-none dark:text-neutral-400"
   >
-    <h1 class="flex items-center">NOM DE L'EMPLOYE</h1>
+    <h1 class="flex items-center">EMPLOYE(E)</h1>
 
     <svg
       class="w-5 h-5 shrink-0 transition-transform transform"
@@ -65,27 +67,30 @@
     <div class="container px6 m-auto">
       <div class="grid grid-cols-4 gap-6 md:grid-cols-8 lg:grid-cols-12">
         <div class="col-span-4 lg:col-span-3">
-          <h1 class="text-lg font-medium">Détails :</h1>
-          <h1>Date de naissance :</h1>
+          <h1 class="text-lg font-medium">Identité :</h1>
+          <h1>Civilité :</h1>
           <h1>Nom :</h1>
           <h1>Prénom:</h1>
           <h1>Adresse :</h1>
+          <h1>Code postal :</h1>
+          <h1>Ville :</h1>
+          <h1>Pays :</h1>
+          <h1>Date de naissance :</h1>
           <h1>Numéro de téléphone :</h1>
           <h1>N° Secu :</h1>
         </div>
         <div class="col-span-4 lg:col-span-3">
-          <h1 class="text-lg font-medium">Qualifications :</h1>
+          <h1 class="text-lg font-medium">Détails :</h1>
           <h1>Permis :</h1>
           <h1>Caces:</h1>
-          <h1>Specialité :</h1>
-          <h1>Satut :</h1>
+          <h1>Diplôme :</h1>
+          <h>Contrat :</h>
         </div>
         <div class="col-span-4 lg:col-span-3">
-          <h1 class="text-lg font-medium">Equipe :</h1>
-          <h1>Projets :</h1>
-          <h1>Product Owner :</h1>
-          <h1>Production :</h1>
-          <h1>Suivi qualité :</h1>
+          <h1 class="text-lg font-medium">Departement :</h1>
+          <h1>Service :</h1>
+          <h1>Fonction :</h1>
+          <h1>Manager :</h1>
         </div>
         <div class="col-span-4 lg:col-span-3">
           <h1 class="text-lg font-medium">Commentaires :</h1>

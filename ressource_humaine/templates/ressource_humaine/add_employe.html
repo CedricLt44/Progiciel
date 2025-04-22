@@ -1,0 +1,47 @@
+{% extends 'backend/base.html' %} {% block content %}
+<header class="py-6 text-center">
+  <h1 class="text-3xl text-neutral-500">Ajouter un Employé</h1>
+</header>
+
+<div class="relative max-w-3xl justify-between  mx-auto py-2 pb-16">
+  <form method="POST" enctype="multipart/form-data" class="px-8 space-y-6">
+    {% csrf_token %}
+
+    <!-- Formulaire d'ajout d'employé -->
+    <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+      <!-- Champs du formulaire -->
+      {% for field in form %}
+      <div class="relative my-6">
+        <label
+          for="{{ field.id_for_label }}"
+          class="cursor-text peer-focus:cursor-default peer-autofill:-top-2 absolute left-2 -top-2 z-[1] px-2 text-xs text-slate-400 transition-all before:absolute before:top-0 before:left-0 before:z-[-1] before:block before:h-full before:w-full before:bg-white before:transition-all peer-placeholder-shown:top-2.5 peer-placeholder-shown:text-sm peer-required:after:text-pink-500 peer-required:after:content-['\00a0*'] peer-invalid:text-pink-500 peer-focus:-top-2 peer-focus:text-xs peer-focus:text-emerald-500 peer-invalid:peer-focus:text-pink-500 peer-disabled:cursor-not-allowed peer-disabled:text-slate-400 peer-disabled:before:bg-transparent"
+        >
+          {{ field.label }} :
+        </label>
+        <div class=" relative my-4">
+          <div class="border border-gray-300 p-2 rounded-md w-full">
+            {{ field }}
+          </div>
+          <div class=" text-red-600 text-xs mt-1">
+            {% for error in field.errors %}
+            <p>{{ error }}</p>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
+    <!-- Bouton de soumission -->
+    <div class="flex justify-end ">
+      <button
+        type="submit"
+        class="inline-flex items-center justify-center h-12 gap-2 px-6 text-sm font-medium tracking-wide transition duration-300 border rounded shadow-lg focus-visible:outline-none whitespace-nowrap border-neutral-500 text-neutral-500 shadow-neutral-200 hover:border-indigo-600 hover:text-indigo-600 focus:border-neutral-700 focus:text-neutral-700 hover:shadow-md hover:shadow-neutral-200 focus:shadow-md focus:shadow-neutral-200 disabled:cursor-not-allowed disabled:border-neutral-300 disabled:text-neutral-300 disabled:shadow-none"
+      >
+        Ajouter
+      </button>
+    </div>
+  </form>
+</div>
+
+{% endblock %}
