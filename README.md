@@ -1,18 +1,16 @@
-# POJET DJANGO - Progiciel
+# POJET DJANGO - Progiciel // Module RH et Calendrier
 
 ================================
 
 . FRONTEND : TAILWIND CSS (biblithèque, daisyUI, Tailwindcss.com)
 
-. BACKEND : Base de donnée
+. BACKEND : Base de donnée Postgresql
 
-. Conteneurs : DOCKER
-
-. AI : Ollama - MISTRAL (model 7b)
+. API : Mistral
 
 ================================
 
-Développement d’un progiciel modulable basé sur Django, intégrant plusieurs fonctionnalités essentielles pour la gestion d’entreprise :
+Ce Module fait partie du développement d’un progiciel modulable basé sur Django, intégrant plusieurs fonctionnalités essentielles pour la gestion d’entreprise :
 
 . ERP : Gestion des ressources et des processus métier.
 
