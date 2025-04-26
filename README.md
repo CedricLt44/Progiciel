@@ -1,4 +1,4 @@
-# POJET DJANGO - Progiciel // Module RH et Calendrier
+# POJET DJANGO - Progiciel // intégration du Module RH
 
 ================================
 
@@ -22,7 +22,7 @@ Ce Module fait partie du développement d’un progiciel modulable basé sur Dja
 
 . Gestion des stocks : Suivi des entrées, sorties et niveaux de stock en temps réel.
 
-. IA locale intégrée : Automatisation et optimisation des processus grâce à une intelligence artificielle embarquée.
+. IA chatbot : optimisation des informations grâce à une intelligence artificielle embarquée.
 
 ================================
 
