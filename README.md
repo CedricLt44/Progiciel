@@ -1,4 +1,4 @@
-# POJET DJANGO - Progiciel // intégration du Module RH
+# PROJET DJANGO - Progiciel // intégration du Module RH
 
 ================================
 
